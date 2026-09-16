@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { @apply bg-ivory-50 text-ink-950 font-sans antialiased; }
+  ::selection { @apply bg-gold-300 text-ink-950; }
+}
+
+@layer components {
+  .container-narrow { @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8; }
+  .section-padding { @apply py-14 sm:py-20 lg:py-24; }
+  .btn-primary {
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full bg-gold-400 px-7 py-3 text-sm font-medium tracking-wide text-ink-950 transition hover:bg-gold-300 sm:w-auto;
+  }
+  .btn-secondary {
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full border border-white/35 bg-white/10 px-7 py-3 text-sm font-medium tracking-wide text-white backdrop-blur transition hover:bg-white/20 sm:w-auto;
+  }
+  .card { @apply rounded-3xl border border-ivory-200 bg-white/80 p-6 shadow-sm backdrop-blur sm:p-7; }
+}
