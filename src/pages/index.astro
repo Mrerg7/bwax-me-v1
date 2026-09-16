@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const STREAM_SRC =
+  'https://customer-wa9cpywo3l4jte5c.cloudflarestream.com/9b57ad6c6683b1ae4b74d5f6836b330c/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-wa9cpywo3l4jte5c.cloudflarestream.com%2F9b57ad6c6683b1ae4b74d5f6836b330c%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false';
+---
+
+<Layout>
+  <Header />
+
+  <main class="flex-1">
+    <section class="relative bg-ink-950">
+      <div class="relative w-full" style="padding-top: 54.32098765432099%;">
+        <iframe
+          src={STREAM_SRC}
+          title="BWax.me hero video"
+          loading="lazy"
+          style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowfullscreen="true"
+        ></iframe>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/20"></div>
+        <div class="absolute inset-0 flex items-end">
+          <div class="container-narrow w-full pb-6 pt-16 sm:pb-12 sm:pt-20">
+            <p class="mb-3 text-[10px] font-medium uppercase tracking-widestx text-gold-300 sm:text-xs">
+              Brazilian Wax · Professional · Personal Brand
+            </p>
+            <h1 class="font-display text-4xl font-semibold leading-none text-white sm:text-6xl lg:text-7xl">
+              BWax<span class="italic text-gold-300">.me</span>
+            </h1>
+            <p class="mt-4 max-w-lg text-sm leading-relaxed text-ivory-100/90 sm:mt-5 sm:text-lg">
+              Brazilian wax, first person. Read it once: B Wax me.
+            </p>
+            <div class="mt-6 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:gap-3">
+              <a href="#method" class="btn-primary pointer-events-auto">The Method</a>
+              <a href="#acquisition" class="btn-secondary pointer-events-auto">$50,000</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="section-padding bg-ivory-50">
+      <div class="container-narrow">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">The method</p>
+          <h2 class="mt-3 font-display text-3xl font-semibold text-ink-950 sm:text-5xl">Brazilian wax, done with care</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-800 sm:text-lg">
+            Wax epilation extracts hair from the root using warm or hard wax, providing smooth skin for 3 to 4 weeks.
+            Hard wax is preferred for the bikini line because it adheres to hair, not skin.
+          </p>
+        </div>
+        <div class="mt-12 grid gap-4 sm:gap-6 md:grid-cols-2">
+          <article class="card">
+            <h3 class="font-display text-2xl font-semibold text-ink-950">Effectiveness</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-800/80">Removes coarse and fine hair. With consistent sessions, regrowth often becomes finer.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-display text-2xl font-semibold text-ink-950">Sensitive areas</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-800/80">Ideal for Brazilian and underarm work when hard wax is used with trained technique.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-display text-2xl font-semibold text-ink-950">Preparation</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-800/80">Hair should be at least ¼ to ½ inch long. Time between visits is part of the method.</p>
+          </article>
+          <article class="card">
+            <h3 class="font-display text-2xl font-semibold text-ink-950">Skin impact</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-800/80">Gentle exfoliation as dead skin lifts with the wax. Temporary redness typically settles quickly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="name" class="section-padding bg-white">
+      <div class="container-narrow grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">The name</p>
+          <h2 class="mt-3 font-display text-3xl font-semibold text-ink-950 sm:text-5xl">SEO in the spoken URL</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-800 sm:text-lg">
+            <strong class="text-ink-950">BWax.me</strong> is the category plus the first person. B is Brazilian. Wax is the search. .me is the booking ask.
+          </p>
+          <ul class="mt-8 space-y-4 text-sm text-ink-800 sm:text-base">
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Title, H1, and hostname all carry Brazilian wax.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>.me reads as a personal studio, not a chain.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Short enough for a bio, a card, and a maps listing.</span></li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border border-ivory-200 bg-ivory-50 p-6 sm:p-8">
+          <dl class="space-y-5">
+            <div class="flex items-baseline justify-between gap-4 border-b border-ivory-200 pb-4">
+              <dt class="text-sm text-ink-800/70">Reads as</dt>
+              <dd class="font-display text-2xl font-semibold text-ink-950">B Wax me</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-ivory-200 pb-4">
+              <dt class="text-sm text-ink-800/70">TLD</dt>
+              <dd class="font-display text-2xl font-semibold text-ink-950">.me</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-ivory-200 pb-4">
+              <dt class="text-sm text-ink-800/70">Fit</dt>
+              <dd class="font-display text-2xl font-semibold text-ink-950">Personal studio</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-4">
+              <dt class="text-sm text-ink-800/70">Offer</dt>
+              <dd class="font-display text-2xl font-semibold text-gold-500">$50,000</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-ivory-200 bg-ivory-50 py-10 sm:py-12">
+      <div class="container-narrow text-center">
+        <p class="mx-auto max-w-2xl text-xs leading-relaxed text-ink-800/70 sm:text-sm">
+          Information presented is for demonstration and educational purposes only and does not constitute an offer of salon services.
+          The domain is offered at the stated asking price; terms are subject to a written agreement.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
