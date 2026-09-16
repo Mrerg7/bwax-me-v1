@@ -10,6 +10,19 @@
   ::selection { @apply bg-gold-300 text-ink-950; }
 }
 
+@keyframes price-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.price-fade {
+  animation: price-fade 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .price-fade { animation: none; }
+}
+
 @layer components {
   .container-narrow { @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8; }
   .section-padding { @apply py-14 sm:py-20 lg:py-24; }
