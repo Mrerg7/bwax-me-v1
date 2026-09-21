@@ -1,5 +1,15 @@
+# Cloudflare Workers Static Assets + canonical-host redirect worker.
+# Name must match the Workers Builds project: bwax-me-v1
 name = "bwax-me-v1"
+main = "src/worker.ts"
 compatibility_date = "2025-07-01"
+workers_dev = false
+preview_urls = false
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
+# Run the worker first so www / http / /index.html 301 before assets are served.
+run_worker_first = true
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"

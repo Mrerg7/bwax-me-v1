@@ -1,0 +1,7 @@
+# Canonical URL enforcement for https://bwax.me/
+# www → apex and http → https are handled in src/worker.ts (host redirects
+# cannot be expressed here). These cover the path-level duplicates.
+/index.html  https://bwax.me/  301
+/index.htm   https://bwax.me/  301
+/index       https://bwax.me/  301
+/sitemap.xml /sitemap-index.xml 301
