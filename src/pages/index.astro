@@ -2,12 +2,75 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import StickyCta from '../components/StickyCta.astro';
 
 const STREAM_SRC =
   'https://customer-wa9cpywo3l4jte5c.cloudflarestream.com/9b57ad6c6683b1ae4b74d5f6836b330c/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-wa9cpywo3l4jte5c.cloudflarestream.com%2F9b57ad6c6683b1ae4b74d5f6836b330c%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false';
+
+const buyHref =
+  'mailto:sales@desertrich.com?subject=Domain%20Inquiry%3A%20BWax.me%20%E2%80%94%20%2450%2C000';
+const offerHref =
+  'mailto:sales@desertrich.com?subject=Offer%20for%20BWax.me&body=Hi%2C%0A%0AI%20would%20like%20to%20make%20an%20offer%20for%20BWax.me.%0A%0AOffer%3A%20%24%0AName%3A%0AEscrow%20or%20registrar%20of%20choice%3A%0A%0AThanks.';
+
+const steps = [
+  {
+    n: '1',
+    title: 'Email your interest',
+    body: 'Write to sales@desertrich.com with your name, the entity buying, and your timeline. No account or sign-up required.',
+  },
+  {
+    n: '2',
+    title: 'Agree on terms',
+    body: 'Questions and firm offers are answered within 1–2 business days. The asking price is $50,000 USD.',
+  },
+  {
+    n: '3',
+    title: 'Escrow and transfer',
+    body: 'Payment clears through escrow or a registrar you trust, then BWax.me is pushed into your account.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Is the BWax.me domain actually for sale?',
+    a: 'Yes. BWax.me is offered for outright purchase at $50,000 USD. The sale covers the domain name itself, transferred to your registrar account.',
+  },
+  {
+    q: 'Why is BWax.me priced at $50,000?',
+    a: 'It combines a category keyword (Brazilian wax) with a personal TLD that reads as a first-person booking phrase: B Wax me. It is short, easy to spell aloud, and works in a bio, a business card, or a maps listing.',
+  },
+  {
+    q: 'How do I buy the domain?',
+    a: 'Email sales@desertrich.com with your name and timeline. Terms are agreed by reply, payment clears through escrow or a registrar you choose, and the domain is transferred to you.',
+  },
+  {
+    q: 'Can I make an offer below the asking price?',
+    a: 'Yes. Send a written offer with the amount, the entity purchasing, and your preferred escrow or payment route. Every reasonable offer receives a written response.',
+  },
+  {
+    q: 'How long does the transfer take?',
+    a: 'A registrar push often completes the same day payment clears. Escrow transfers depend on the payment method, and the timeline is confirmed before funds move.',
+  },
+  {
+    q: 'What can I build on BWax.me?',
+    a: 'A single-artist wax studio, a boutique salon brand, a booking site, an esthetician portfolio, or a redirect to an existing practice. The name carries the category, so the site does not have to explain it.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
 <Layout>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+
   <Header />
 
   <main class="flex-1">
@@ -16,8 +79,10 @@ const STREAM_SRC =
         <div class="relative aspect-[1620/880] w-full sm:absolute sm:inset-0 sm:h-full sm:w-full">
           <iframe
             src={STREAM_SRC}
-            title="BWax.me hero video"
-            loading="lazy"
+            title="BWax.me brand film"
+            loading="eager"
+            width="1620"
+            height="880"
             class="absolute inset-0 h-full w-full"
             style="border: none;"
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
@@ -28,17 +93,18 @@ const STREAM_SRC =
         <div class="relative sm:absolute sm:inset-0 sm:flex sm:items-end">
           <div class="container-narrow w-full pb-6 pt-10 sm:pb-12 sm:pt-20">
             <p class="mb-3 text-[10px] font-medium uppercase tracking-widestx text-gold-300 sm:text-xs">
-              Brazilian Wax · Professional · Personal Brand
+              Brazilian Wax · Domain for Sale · Personal Brand
             </p>
             <h1 class="font-display text-4xl font-semibold leading-none text-white sm:text-6xl lg:text-7xl">
               BWax<span class="italic text-gold-300">.me</span>
+              <span class="sr-only">— Brazilian wax domain for sale at $50,000</span>
             </h1>
             <p class="mt-4 max-w-lg text-sm leading-relaxed text-ivory-100/90 sm:mt-5 sm:text-lg">
-              Brazilian wax, first person. Read it once: B Wax me.
+              Brazilian wax, first person. Read it once: B Wax me. Offered for acquisition at $50,000.
             </p>
             <div class="mt-6 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:gap-3">
-              <a href="#method" class="btn-primary pointer-events-auto">The Method</a>
-              <a href="#acquisition" class="btn-secondary pointer-events-auto">$50,000</a>
+              <a href="#acquisition" class="btn-primary pointer-events-auto">Get this domain — $50,000</a>
+              <a href="#method" class="btn-secondary pointer-events-auto">Why the name works</a>
             </div>
           </div>
         </div>
@@ -73,6 +139,10 @@ const STREAM_SRC =
             <p class="mt-3 text-sm leading-relaxed text-ink-800/80">Gentle exfoliation as dead skin lifts with the wax. Temporary redness typically settles quickly.</p>
           </article>
         </div>
+        <p class="mx-auto mt-10 max-w-2xl text-center text-sm text-ink-800/80">
+          Full breakdown of hard wax, soft wax, preparation, and aftercare in the
+          <a href="/brazilian-wax" class="font-medium text-gold-600 underline underline-offset-4 hover:text-ink-950">Brazilian wax guide</a>.
+        </p>
       </div>
     </section>
 
@@ -87,28 +157,83 @@ const STREAM_SRC =
           <ul class="mt-8 space-y-4 text-sm text-ink-800 sm:text-base">
             <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Title, H1, and hostname all carry Brazilian wax.</span></li>
             <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>.me reads as a personal studio, not a chain.</span></li>
-            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Short enough for a bio, a card, and a maps listing.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Five characters before the dot — short enough for a bio, a card, and a maps listing.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Exact-match for the search that matters: Brazilian wax.</span></li>
           </ul>
         </div>
         <div class="rounded-3xl border border-ivory-200 bg-ivory-50 p-6 sm:p-8">
           <dl class="space-y-5">
-            <div class="flex items-baseline justify-between gap-4 border-b border-ivory-200 pb-4">
+            <div class="flex flex-col gap-1 border-b border-ivory-200 pb-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
               <dt class="text-sm text-ink-800/70">Reads as</dt>
               <dd class="font-display text-2xl font-semibold text-ink-950">B Wax me</dd>
             </div>
-            <div class="flex items-baseline justify-between gap-4 border-b border-ivory-200 pb-4">
+            <div class="flex flex-col gap-1 border-b border-ivory-200 pb-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
               <dt class="text-sm text-ink-800/70">TLD</dt>
               <dd class="font-display text-2xl font-semibold text-ink-950">.me</dd>
             </div>
-            <div class="flex items-baseline justify-between gap-4 border-b border-ivory-200 pb-4">
+            <div class="flex flex-col gap-1 border-b border-ivory-200 pb-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
               <dt class="text-sm text-ink-800/70">Fit</dt>
               <dd class="font-display text-2xl font-semibold text-ink-950">Personal studio</dd>
             </div>
-            <div class="flex items-baseline justify-between gap-4">
+            <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
               <dt class="text-sm text-ink-800/70">Offer</dt>
-              <dd class="font-display text-2xl font-semibold text-gold-500">$50,000</dd>
+              <dd class="font-display text-2xl font-semibold text-gold-600">$50,000</dd>
             </div>
           </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="buy" class="section-padding bg-ivory-50">
+      <div class="container-narrow">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">How to buy</p>
+          <h2 class="mt-3 font-display text-3xl font-semibold text-ink-950 sm:text-5xl">Three steps to ownership</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-800 sm:text-lg">
+            No auctions, no bidding wars. A straight purchase with escrow protection on both sides.
+          </p>
+        </div>
+        <ol class="mt-12 grid gap-4 sm:gap-6 md:grid-cols-3">
+          {
+            steps.map((step) => (
+              <li class="card">
+                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-ink-950 font-display text-lg font-semibold text-gold-300">
+                  {step.n}
+                </span>
+                <h3 class="mt-4 font-display text-2xl font-semibold text-ink-950">{step.title}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-ink-800/80">{step.body}</p>
+              </li>
+            ))
+          }
+        </ol>
+        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href={buyHref} class="btn-primary">Email to buy — $50,000</a>
+          <a href={offerHref} class="btn-dark">Make an offer</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section-padding bg-white">
+      <div class="container-narrow grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
+        <div>
+          <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">FAQ</p>
+          <h2 class="mt-3 font-display text-3xl font-semibold text-ink-950 sm:text-5xl">Questions buyers ask</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-800 sm:text-lg">
+            Everything about price, process, and transfer. Anything not covered here gets a written reply within 1–2 business days.
+          </p>
+          <a href={buyHref} class="mt-6 inline-flex min-h-12 items-center text-sm font-medium text-gold-600 underline underline-offset-4 hover:text-ink-950">
+            sales@desertrich.com
+          </a>
+        </div>
+        <div class="divide-y divide-ivory-200 border-y border-ivory-200">
+          {
+            faqs.map((f, i) => (
+              <details class="faq-item py-1" open={i === 0}>
+                <summary>{f.q}</summary>
+                <p class="pb-4 pr-8 text-sm leading-relaxed text-ink-800/80 sm:text-base">{f.a}</p>
+              </details>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -124,4 +249,5 @@ const STREAM_SRC =
   </main>
 
   <Footer />
+  <StickyCta />
 </Layout>

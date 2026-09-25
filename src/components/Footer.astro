@@ -1,5 +1,9 @@
 ---
 const currentYear = new Date().getFullYear();
+const buyHref =
+  'mailto:sales@desertrich.com?subject=Domain%20Inquiry%3A%20BWax.me%20%E2%80%94%20%2450%2C000';
+const offerHref =
+  'mailto:sales@desertrich.com?subject=Offer%20for%20BWax.me&body=Hi%2C%0A%0AI%20would%20like%20to%20make%20an%20offer%20for%20BWax.me.%0A%0AOffer%3A%20%24%0AName%3A%0AEscrow%20or%20registrar%20of%20choice%3A%0A%0AThanks.';
 ---
 
 <footer id="acquisition" class="bg-ink-950 text-ivory-50">
@@ -14,11 +18,14 @@ const currentYear = new Date().getFullYear();
           Brazilian wax as a personal brand. Read it once: B Wax me. Built for a single artist or a boutique studio that wants the category in the first person.
         </p>
         <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="mailto:sales@desertrich.com?subject=Domain%20Inquiry%3A%20BWax.me%20%E2%80%94%20%2450%2C000" class="btn-primary">
-            sales@desertrich.com
-          </a>
+          <a href={buyHref} class="btn-primary">Email to buy — $50,000</a>
+          <a href={offerHref} class="btn-secondary">Make an offer</a>
         </div>
-        <p class="mt-5 text-xs text-ivory-200/50">Confidential. Response within 1–2 business days.</p>
+        <ul class="mx-auto mt-8 flex max-w-lg flex-col gap-2 text-xs text-ivory-200/70 sm:text-sm">
+          <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400"></span><span>Registrar push or escrow — buyer's choice of service.</span></li>
+          <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400"></span><span>Reply within 1–2 business days, confidentially.</span></li>
+          <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400"></span><span>Clean history, no spam footprint, ready to transfer.</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -27,15 +34,22 @@ const currentYear = new Date().getFullYear();
     <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
       <div>
         <p class="font-display text-lg text-white">BWax.me</p>
-        <p class="text-xs uppercase tracking-widestx text-ivory-200/50">Brazilian Wax Professional</p>
+        <p class="text-xs uppercase tracking-widestx text-ivory-200/70">Brazilian Wax Domain for Sale</p>
+        <nav class="mt-3 flex flex-wrap gap-x-4 text-xs text-ivory-200/70" aria-label="Footer navigation">
+          <a href="/#method" class="inline-flex min-h-12 items-center px-1 hover:text-gold-300">The Method</a>
+          <a href="/brazilian-wax" class="inline-flex min-h-12 items-center px-1 hover:text-gold-300">Brazilian Wax Guide</a>
+          <a href="/#name" class="inline-flex min-h-12 items-center px-1 hover:text-gold-300">The Name</a>
+          <a href="/#faq" class="inline-flex min-h-12 items-center px-1 hover:text-gold-300">FAQ</a>
+          <a href={buyHref} class="inline-flex min-h-12 items-center px-1 hover:text-gold-300">sales@desertrich.com</a>
+        </nav>
       </div>
-      <p class="max-w-md text-xs leading-relaxed text-ivory-200/50 sm:text-right">
+      <p class="max-w-md text-xs leading-relaxed text-ivory-200/70 sm:text-right">
         This website is for demonstration and informational purposes only. It does not constitute an offer of salon services,
         a commitment to deploy, or a guarantee of outcomes. All statistics, projections, and references to specific
         technologies are based on publicly available information as of the date shown and are subject to change.
       </p>
     </div>
-    <div class="mt-8 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-ivory-200/40 sm:flex-row sm:justify-between">
+    <div class="mt-8 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-ivory-200/65 sm:flex-row sm:justify-between">
       <p>© {currentYear} BWax.me. All rights reserved.</p>
       <p>Astro · Cloudflare Workers Static Assets · Stream</p>
     </div>

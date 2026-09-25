@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyCta from '../components/StickyCta.astro';
+
+const title = 'Brazilian Wax Guide: Hard Wax, Prep & Aftercare | BWax.me';
+const description =
+  'What a Brazilian wax is, hard wax vs soft wax, how to prepare, and how to care for skin afterward — plus the BWax.me domain, offered at $50,000.';
+const canonical = 'https://bwax.me/brazilian-wax';
+
+const buyHref =
+  'mailto:sales@desertrich.com?subject=Domain%20Inquiry%3A%20BWax.me%20%E2%80%94%20%2450%2C000';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: canonical,
+  datePublished: '2026-09-25',
+  dateModified: '2026-09-25',
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Desert Rich', email: 'sales@desertrich.com' },
+  publisher: { '@type': 'Organization', name: 'Desert Rich', email: 'sales@desertrich.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
+
+  <Header />
+
+  <main class="flex-1">
+    <section class="border-b border-ivory-200 bg-ivory-50">
+      <div class="container-narrow py-14 sm:py-20">
+        <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">Brazilian wax guide</p>
+        <h1 class="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight text-ink-950 sm:text-6xl">
+          Brazilian wax, explained without the marketing
+        </h1>
+        <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-800 sm:text-lg">
+          What the service actually does, how hard wax differs from soft wax, how to prepare, and what to do afterward —
+          written for someone researching the treatment, or building a brand around it.
+        </p>
+        <p class="mt-6 max-w-2xl text-sm leading-relaxed text-ink-800/70">
+          Looking for the brand instead of the treatment?
+          <a href="/#acquisition" class="font-medium text-gold-600 underline underline-offset-4 hover:text-ink-950">BWax.me is for sale at $50,000</a>.
+        </p>
+      </div>
+    </section>
+
+    <article class="section-padding bg-white">
+      <div class="container-narrow grid gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-start">
+        <div class="min-w-0 space-y-10">
+          <section id="what-it-is">
+            <h2 class="font-display text-3xl font-semibold text-ink-950 sm:text-4xl">What a Brazilian wax is</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-800">
+              A Brazilian wax removes hair from the bikini area with warm wax and cloth or film strips, or with hard wax that
+              sets on the hair and lifts off without a strip. Hair is pulled from the root, so regrowth takes weeks rather
+              than days. With regular sessions, hair often returns finer and sparser because the follicle is disturbed on a
+              consistent cycle.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-ink-800">
+              The service usually runs 30 to 45 minutes. Sessions are spaced roughly three to four weeks apart so hair is at
+              least a quarter inch long — long enough for wax to grip, short enough to stay comfortable.
+            </p>
+          </section>
+
+          <section id="hard-vs-soft">
+            <h2 class="font-display text-3xl font-semibold text-ink-950 sm:text-4xl">Hard wax vs soft wax</h2>
+            <div class="mt-5 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+              <table class="w-full min-w-[30rem] border-collapse text-left text-sm">
+                <thead>
+                  <tr class="border-b border-ink-950/15">
+                    <th scope="col" class="py-3 pr-4 font-medium text-ink-950">Factor</th>
+                    <th scope="col" class="py-3 pr-4 font-medium text-ink-950">Hard wax</th>
+                    <th scope="col" class="py-3 font-medium text-ink-950">Soft wax</th>
+                  </tr>
+                </thead>
+                <tbody class="text-ink-800">
+                  <tr class="border-b border-ivory-200">
+                    <td class="py-3 pr-4">Adhesion</td>
+                    <td class="py-3 pr-4">Grabs hair, not skin</td>
+                    <td class="py-3">Grabs a thin layer of skin</td>
+                  </tr>
+                  <tr class="border-b border-ivory-200">
+                    <td class="py-3 pr-4">Best use</td>
+                    <td class="py-3 pr-4">Bikini line and sensitive areas</td>
+                    <td class="py-3">Larger, flatter areas and fine hair</td>
+                  </tr>
+                  <tr class="border-b border-ivory-200">
+                    <td class="py-3 pr-4">Comfort</td>
+                    <td class="py-3 pr-4">Lower heat, gentler lift</td>
+                    <td class="py-3">Warmer, quicker pull</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4">Session feel</td>
+                    <td class="py-3 pr-4">Applied and removed in sections</td>
+                    <td class="py-3">Applied in zones, removed with strips</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-4 text-base leading-relaxed text-ink-800">
+              For a Brazilian service, hard wax is the default recommendation for the bikini line: it adheres to the hair
+              shaft, so it lifts with less pull on already-sensitive skin.
+            </p>
+          </section>
+
+          <section id="preparation">
+            <h2 class="font-display text-3xl font-semibold text-ink-950 sm:text-4xl">How to prepare</h2>
+            <ul class="mt-5 space-y-3 text-base leading-relaxed text-ink-800">
+              <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Grow hair to ¼–½ inch. Too short and the wax cannot grip; too long and the session is more uncomfortable.</span></li>
+              <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Exfoliate the day before, not the day of. Freshly exfoliated skin is more reactive to wax.</span></li>
+              <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Skip retinoids, acids, and sun exposure for 48 hours before the appointment.</span></li>
+              <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"></span><span>Arrive with clean, dry skin — no lotion or oil on the area.</span></li>
+            </ul>
+          </section>
+
+          <section id="aftercare">
+            <h2 class="font-display text-3xl font-semibold text-ink-950 sm:text-4xl">Aftercare</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-800">
+              Some redness is normal and usually settles within a few hours. Keep the area cool for 24 hours: no hot baths,
+              saunas, tight clothing, or workouts that create friction. Avoid actives and deodorants on the treated zone for
+              a day, and do not pick at ingrown hairs — exfoliate gently once the skin has calmed, then resume normal routine.
+            </p>
+          </section>
+
+          <section id="choosing">
+            <h2 class="font-display text-3xl font-semibold text-ink-950 sm:text-4xl">Choosing a studio</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-800">
+              Ask three things before booking: what wax they use on the bikini line, how they sanitize between clients, and
+              how long the esthetician has been doing Brazilian services specifically. A specialist who works on this area
+              all day will be faster and more consistent than a generalist. Reputation matters more than price — a rushed
+              session is the most common cause of irritation and ingrowns.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-ink-800">
+              If you are the studio: the same logic applies to your name. Clients should know the category from the URL
+              alone, before they read a word of your site.
+            </p>
+          </section>
+        </div>
+
+        <aside class="space-y-6 lg:sticky lg:top-24">
+          <div class="card">
+            <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">Domain for sale</p>
+            <p class="mt-3 font-display text-3xl font-semibold text-ink-950">BWax<span class="italic text-gold-600">.me</span></p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-800/80">
+              The exact-match name for this category on a personal TLD. Reads aloud as B Wax me — a booking phrase, not a
+              chain.
+            </p>
+            <p class="mt-4 font-display text-3xl font-semibold text-gold-600">$50,000</p>
+            <a href={buyHref} class="btn-primary mt-5">Email to buy</a>
+          </div>
+          <nav class="rounded-3xl border border-ivory-200 bg-ivory-50 p-6" aria-label="On this page">
+            <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">On this page</p>
+            <ul class="mt-1 text-sm text-ink-800">
+              <li><a href="#what-it-is" class="flex min-h-12 items-center hover:text-gold-600">What a Brazilian wax is</a></li>
+              <li><a href="#hard-vs-soft" class="flex min-h-12 items-center hover:text-gold-600">Hard wax vs soft wax</a></li>
+              <li><a href="#preparation" class="flex min-h-12 items-center hover:text-gold-600">How to prepare</a></li>
+              <li><a href="#aftercare" class="flex min-h-12 items-center hover:text-gold-600">Aftercare</a></li>
+              <li><a href="#choosing" class="flex min-h-12 items-center hover:text-gold-600">Choosing a studio</a></li>
+            </ul>
+          </nav>
+          <nav class="rounded-3xl border border-ivory-200 bg-white p-6" aria-label="Site sections">
+            <p class="text-[11px] font-medium uppercase tracking-widestx text-rose-700">More from BWax.me</p>
+            <ul class="mt-1 text-sm text-ink-800">
+              <li><a href="/#method" class="flex min-h-12 items-center hover:text-gold-600">The method</a></li>
+              <li><a href="/#name" class="flex min-h-12 items-center hover:text-gold-600">Why the name works</a></li>
+              <li><a href="/#faq" class="flex min-h-12 items-center hover:text-gold-600">Buyer FAQ</a></li>
+              <li><a href="/#acquisition" class="flex min-h-12 items-center hover:text-gold-600">Acquisition details</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </article>
+
+    <section class="border-t border-ivory-200 bg-ivory-50 py-10 sm:py-12">
+      <div class="container-narrow text-center">
+        <p class="mx-auto max-w-2xl text-xs leading-relaxed text-ink-800/70 sm:text-sm">
+          Information presented is for demonstration and educational purposes only and does not constitute an offer of salon
+          services or medical advice. The domain is offered at the stated asking price; terms are subject to a written agreement.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <StickyCta />
+</Layout>
