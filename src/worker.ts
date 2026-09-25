@@ -47,6 +47,17 @@ export default {
       return redirectToCanonical('/', url.search);
     }
 
+    // Directory URLs served without a trailing slash would only get the asset
+    // layer's temporary redirect; answer with a permanent one so crawlers
+    // consolidate onto the single canonical form instead of keeping both.
+    if (isPublishedHost && !url.pathname.endsWith('/') && !url.pathname.includes('.')) {
+      const directoryRequest = new Request(`${CANONICAL_ORIGIN}${url.pathname}/${url.search}`);
+      const directoryResponse = await env.ASSETS.fetch(directoryRequest);
+      if (directoryResponse.status === 200) {
+        return redirectToCanonical(`${url.pathname}/`, url.search);
+      }
+    }
+
     const response = await env.ASSETS.fetch(request);
 
     const contentType = response.headers.get('content-type') ?? '';
