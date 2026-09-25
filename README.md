@@ -10,7 +10,7 @@ Sales site for the premium domain **BWax.me** — Brazilian wax as a personal br
 | URL | Purpose |
 | --- | --- |
 | `/` | Domain sale page: brand case, how to buy, buyer FAQ |
-| `/brazilian-wax` | Topical guide that earns search traffic and funnels to the sale |
+| `/brazilian-wax/` | Topical guide that earns search traffic and funnels to the sale |
 
 ## SEO
 
