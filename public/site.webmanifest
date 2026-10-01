@@ -1,0 +1,23 @@
+{
+  "name": "BWax.me — Brazilian Wax Domain for Sale",
+  "short_name": "BWax.me",
+  "description": "Premium Brazilian wax domain on the .me TLD, offered for sale at $50,000 USD.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#16100e",
+  "theme_color": "#16100e",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

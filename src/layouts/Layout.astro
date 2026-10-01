@@ -8,6 +8,7 @@ interface Props {
   ogImageAlt?: string;
   canonical?: string;
   robots?: string;
+  jsonLd?: Record<string, unknown>[];
 }
 
 const POSTER =
@@ -20,11 +21,49 @@ const {
   ogImageAlt = 'BWax.me — Brazilian wax domain offered for $50,000',
   canonical = 'https://bwax.me/',
   robots = 'index, follow, max-image-preview:large, max-snippet:-1',
+  jsonLd = [],
 } = Astro.props;
 
 const siteName = 'BWax.me';
 const FONTS =
   'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Desert Rich',
+  url: 'https://bwax.me',
+  email: 'sales@desertrich.com',
+  logo: 'https://bwax.me/favicon.svg',
+  sameAs: [
+    'https://twitter.com/desertrich',
+    'https://linkedin.com/company/desert-rich',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-555-0100',
+    contactType: 'sales',
+    availableLanguage: 'English',
+  },
+};
+
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  url: 'https://bwax.me',
+  description,
+  inLanguage: 'en',
+  publisher: organizationSchema,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://bwax.me/search?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
 ---
 
 <!doctype html>
@@ -37,17 +76,21 @@ const FONTS =
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="bwax.me, BWax.me domain for sale, Brazilian wax domain, Brazilian waxing, Brazilian wax professional, buy domain name, premium .me domain"
+      content="bwax.me, BWax.me domain for sale, Brazilian wax domain, Brazilian waxing, Brazilian wax professional, buy domain name, premium .me domain, domain marketplace, buy premium domains, domain investment, brandable domains for sale"
     />
     <meta name="robots" content={robots} />
     <meta name="author" content="Desert Rich" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="canonical" href={canonical} />
     <meta name="google-site-verification" content="v8xtYgpvyG60A2ARXPZNVWXu-UHICsb7fHGxI_IFT_E" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://customer-wa9cpywo3l4jte5c.cloudflarestream.com" />
+    <link rel="preload" as="style" href={FONTS} />
     <link rel="stylesheet" href={FONTS} media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href={FONTS} /></noscript>
+    <link rel="preload" as="image" href={ogImage} fetchpriority="high" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
@@ -67,23 +110,18 @@ const FONTS =
     <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#16100e" />
+    <meta name="color-scheme" content="light dark" />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: siteName,
-      url: "https://bwax.me",
-      description,
-      inLanguage: "en",
-      publisher: {
-        "@type": "Organization",
-        name: "Desert Rich",
-        email: "sales@desertrich.com",
-        url: "https://bwax.me",
-      },
-    })} />
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebPage",
@@ -92,7 +130,7 @@ const FONTS =
       url: canonical,
       isPartOf: { "@type": "WebSite", name: siteName, url: "https://bwax.me" },
       datePublished: "2026-09-16",
-      dateModified: "2026-09-25",
+      dateModified: new Date().toISOString().split('T')[0],
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -110,9 +148,13 @@ const FONTS =
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
-        seller: { "@type": "Organization", name: "Desert Rich", email: "sales@desertrich.com" },
+        seller: organizationSchema,
+        validFrom: "2026-09-16",
       },
     })} />
+    {jsonLd.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col pb-16 sm:pb-0">

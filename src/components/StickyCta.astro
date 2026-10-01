@@ -9,17 +9,27 @@ const offerHref =
   class="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-ink-950/95 backdrop-blur-md sm:hidden"
   role="region"
   aria-label="Purchase BWax.me"
+  data-sticky-cta
 >
   <div class="flex items-center gap-2 px-3 py-2.5">
     <div class="min-w-0 flex-1 leading-tight">
       <p class="truncate font-display text-xl font-semibold text-gold-300">$50,000</p>
       <p class="truncate text-[10px] uppercase tracking-widestx text-ivory-200/60">BWax.me for sale</p>
     </div>
-    <a href={offerHref} class="min-h-12 shrink-0 rounded-full border border-white/30 px-4 text-xs font-medium text-white">
-      Offer
-    </a>
-    <a href={mailHref} class="min-h-12 shrink-0 rounded-full bg-gold-400 px-4 text-xs font-semibold text-ink-950">
-      Email to buy
-    </a>
+    <a href={offerHref} class="min-h-12 shrink-0 rounded-full border border-white/30 px-4 text-xs font-medium text-white" data-cta="offer">Offer</a>
+    <a href={mailHref} class="min-h-12 shrink-0 rounded-full bg-gold-400 px-4 text-xs font-semibold text-ink-950" data-cta="buy">Email to buy</a>
   </div>
 </div>
+
+<script>
+  // Track CTA clicks for analytics
+  document.addEventListener('click', (e) => {
+    const cta = e.target.closest('[data-cta]');
+    if (cta && window.gtag) {
+      window.gtag('event', 'cta_click', {
+        cta_type: cta.dataset.cta,
+        page_path: window.location.pathname,
+      });
+    }
+  });
+</script>

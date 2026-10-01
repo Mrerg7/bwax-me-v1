@@ -9,6 +9,30 @@
   [id] { scroll-margin-top: 5rem; }
   a:focus-visible,
   button:focus-visible { @apply outline-none ring-2 ring-gold-500 ring-offset-2 ring-offset-ivory-50; }
+
+  @media (prefers-color-scheme: dark) {
+    body { background-color: #16100e; color: #f7f1ea; }
+    .card { background-color: #1e1813cc; border-color: #2a241d; }
+    .bg-ivory-50 { background-color: #16100e; }
+    .bg-white { background-color: #1e1813; }
+    .text-ink-950 { color: #f7f1ea; }
+    .text-ink-800 { color: #e8ddd0; }
+    .text-ink-800\/70 { color: rgba(232, 221, 208, 0.7); }
+    .text-ink-800\/80 { color: rgba(232, 221, 208, 0.8); }
+    .border-ivory-200 { border-color: #2a241d; }
+    .bg-ink-950\/95 { background-color: rgba(22, 16, 14, 0.95); }
+    .bg-ink-950 { background-color: #16100e; }
+    .text-ivory-50 { color: #f7f1ea; }
+    .text-ivory-200\/70 { color: rgba(247, 241, 234, 0.7); }
+    .text-ivory-200\/80 { color: rgba(247, 241, 234, 0.8); }
+    .text-ivory-200\/60 { color: rgba(247, 241, 234, 0.6); }
+    .text-ivory-200\/65 { color: rgba(247, 241, 234, 0.65); }
+    .border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
+    .border-white\/30 { border-color: rgba(255, 255, 255, 0.3); }
+    .bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
+    .bg-white\/80 { background-color: rgba(255, 255, 255, 0.8); }
+    .bg-ivory-50\/90 { background-color: rgba(247, 241, 234, 0.9); }
+  }
 }
 
 @keyframes price-fade {
@@ -29,13 +53,13 @@
   .container-narrow { @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8; }
   .section-padding { @apply py-14 sm:py-20 lg:py-24; }
   .btn-primary {
-    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full bg-gold-400 px-7 py-3 text-sm font-medium tracking-wide text-ink-950 transition hover:bg-gold-300 sm:w-auto;
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full bg-gold-400 px-7 py-3 text-sm font-medium tracking-wide text-ink-950 transition hover:bg-gold-300 focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 focus:ring-offset-ivory-50 sm:w-auto;
   }
   .btn-secondary {
-    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full border border-white/35 bg-white/10 px-7 py-3 text-sm font-medium tracking-wide text-white backdrop-blur transition hover:bg-white/20 sm:w-auto;
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full border border-white/35 bg-white/10 px-7 py-3 text-sm font-medium tracking-wide text-white backdrop-blur transition hover:bg-white/20 focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 focus:ring-offset-ink-950 sm:w-auto;
   }
   .btn-dark {
-    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full border border-ink-950/20 bg-transparent px-7 py-3 text-sm font-medium tracking-wide text-ink-950 transition hover:bg-ink-950 hover:text-gold-300 sm:w-auto;
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-full border border-ink-950/20 bg-transparent px-7 py-3 text-sm font-medium tracking-wide text-ink-950 transition hover:bg-ink-950 hover:text-gold-300 focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 focus:ring-offset-ivory-50 sm:w-auto;
   }
   .card { @apply rounded-3xl border border-ivory-200 bg-white/80 p-6 shadow-sm backdrop-blur sm:p-7; }
   .faq-item summary { @apply flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 py-3 text-base font-medium text-ink-950 sm:text-lg; }

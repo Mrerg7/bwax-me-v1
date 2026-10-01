@@ -7,6 +7,9 @@ import StickyCta from '../components/StickyCta.astro';
 const STREAM_SRC =
   'https://customer-wa9cpywo3l4jte5c.cloudflarestream.com/9b57ad6c6683b1ae4b74d5f6836b330c/iframe?muted=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-wa9cpywo3l4jte5c.cloudflarestream.com%2F9b57ad6c6683b1ae4b74d5f6836b330c%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false';
 
+const POSTER =
+  'https://customer-wa9cpywo3l4jte5c.cloudflarestream.com/9b57ad6c6683b1ae4b74d5f6836b330c/thumbnails/thumbnail.jpg?time=&height=600';
+
 const buyHref =
   'mailto:sales@desertrich.com?subject=Domain%20Inquiry%3A%20BWax.me%20%E2%80%94%20%2450%2C000';
 const offerHref =
@@ -66,9 +69,18 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bwax.me/' },
+    { '@type': 'ListItem', position: 2, name: 'BWax.me Domain for Sale', item: 'https://bwax.me/' },
+  ],
+};
 ---
 
-<Layout>
+<Layout jsonLd={[breadcrumbSchema, faqSchema]}>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
 
   <Header />
@@ -105,6 +117,24 @@ const faqSchema = {
             <div class="mt-6 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:gap-3">
               <a href="#acquisition" class="btn-primary pointer-events-auto">Get this domain — $50,000</a>
               <a href="#method" class="btn-secondary pointer-events-auto">Why the name works</a>
+            </div>
+            <div class="mt-8 flex flex-wrap items-center gap-4 text-xs text-ivory-200/70" aria-label="Trust signals">
+              <span class="flex items-center gap-1.5">
+                <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                Escrow protected
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                Secure transfer
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                1–2 day response
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                Clean history
+              </span>
             </div>
           </div>
         </div>
@@ -210,6 +240,19 @@ const faqSchema = {
           <a href={buyHref} class="btn-primary">Email to buy — $50,000</a>
           <a href={offerHref} class="btn-dark">Make an offer</a>
         </div>
+        <div class="mt-10 p-6 rounded-3xl border border-gold-200 bg-gold-50">
+          <div class="flex flex-col items-center gap-3 text-center sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-2 text-sm text-ink-950">
+              <svg class="h-5 w-5 text-gold-600 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span class="font-medium">Serious inquiries only</span>
+              <span class="text-gold-600">·</span>
+              <span>One domain available</span>
+              <span class="text-gold-600">·</span>
+              <span>No reserve auction</span>
+            </div>
+            <a href={buyHref} class="btn-primary min-w-[200px]">Start acquisition →</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -228,9 +271,9 @@ const faqSchema = {
         <div class="divide-y divide-ivory-200 border-y border-ivory-200">
           {
             faqs.map((f, i) => (
-              <details class="faq-item py-1" open={i === 0}>
-                <summary>{f.q}</summary>
-                <p class="pb-4 pr-8 text-sm leading-relaxed text-ink-800/80 sm:text-base">{f.a}</p>
+              <details class="faq-item py-1" open={i === 0} itemprop="mainEntity" itemtype="https://schema.org/Question" itemscope>
+                <summary itemprop="name">{f.q}</summary>
+                <p class="pb-4 pr-8 text-sm leading-relaxed text-ink-800/80 sm:text-base" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" itemscope><span itemprop="text">{f.a}</span></p>
               </details>
             ))
           }

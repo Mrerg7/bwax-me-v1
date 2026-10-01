@@ -1,4 +1,18 @@
+# BWax.me - Robots.txt
+# Domain for sale: BWax.me ($50,000)
+# Contact: sales@desertrich.com
+
 User-agent: *
 Allow: /
 
+# Disallow admin/private paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /node_modules/
+
+# Sitemap location
 Sitemap: https://bwax.me/sitemap-index.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 10

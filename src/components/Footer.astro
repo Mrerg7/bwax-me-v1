@@ -4,27 +4,34 @@ const buyHref =
   'mailto:sales@desertrich.com?subject=Domain%20Inquiry%3A%20BWax.me%20%E2%80%94%20%2450%2C000';
 const offerHref =
   'mailto:sales@desertrich.com?subject=Offer%20for%20BWax.me&body=Hi%2C%0A%0AI%20would%20like%20to%20make%20an%20offer%20for%20BWax.me.%0A%0AOffer%3A%20%24%0AName%3A%0AEscrow%20or%20registrar%20of%20choice%3A%0A%0AThanks.';
+
+const trustSignals = [
+  { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', text: 'Escrow protected' },
+  { icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z', text: 'Secure transfer' },
+  { icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4', text: '1–2 day response' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', text: 'Clean history' },
+];
 ---
 
-<footer id="acquisition" class="bg-ink-950 text-ivory-50">
+<footer id="acquisition" class="bg-ink-950 text-ivory-50" itemtype="https://schema.org/WebPage" itemscope>
   <div class="border-b border-white/10">
     <div class="container-narrow py-14 sm:py-20">
       <div class="mx-auto max-w-2xl text-center">
         <p class="mb-4 text-[11px] font-medium uppercase tracking-widestx text-gold-400">Offered for acquisition</p>
-        <h2 class="font-display text-3xl font-semibold text-white sm:text-5xl">BWax<span class="italic text-gold-300">.me</span></h2>
-        <p class="price-fade mt-5 font-display text-5xl font-semibold tracking-tight text-gold-300 sm:text-6xl">$50,000</p>
+        <h2 itemprop="name" class="font-display text-3xl font-semibold text-white sm:text-5xl">BWax<span class="italic text-gold-300">.me</span></h2>
+        <p class="price-fade mt-5 font-display text-5xl font-semibold tracking-tight text-gold-300 sm:text-6xl" itemprop="offers" itemtype="https://schema.org/Offer" itemscope><span itemprop="price" content="50000">$50,000</span> <span itemprop="priceCurrency" content="USD"></span></p>
         <p class="mt-3 text-sm text-ivory-200/70">USD · Serious inquiries only</p>
-        <p class="mt-6 text-sm leading-relaxed text-ivory-200/80 sm:text-base">
+        <p class="mt-6 text-sm leading-relaxed text-ivory-200/80 sm:text-base" itemprop="description">
           Brazilian wax as a personal brand. Read it once: B Wax me. Built for a single artist or a boutique studio that wants the category in the first person.
         </p>
         <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href={buyHref} class="btn-primary">Email to buy — $50,000</a>
+          <a href={buyHref} class="btn-primary" itemprop="url">Email to buy — $50,000</a>
           <a href={offerHref} class="btn-secondary">Make an offer</a>
         </div>
-        <ul class="mx-auto mt-8 flex max-w-lg flex-col gap-2 text-xs text-ivory-200/70 sm:text-sm">
-          <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400"></span><span>Registrar push or escrow — buyer's choice of service.</span></li>
-          <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400"></span><span>Reply within 1–2 business days, confidentially.</span></li>
-          <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400"></span><span>Clean history, no spam footprint, ready to transfer.</span></li>
+        <ul class="mx-auto mt-8 flex max-w-lg flex-col gap-2 text-xs text-ivory-200/70 sm:text-sm" role="list" aria-label="Transfer guarantees">
+          {trustSignals.map(({ icon, text }) => (
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400"></span><span>{text}</span></li>
+          ))}
         </ul>
       </div>
     </div>
